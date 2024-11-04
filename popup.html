@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- <html>
+<head>
+    <title>Jira Notifier</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 10px; }
+        label, input { display: block; margin: 10px 0; }
+        button { padding: 5px 10px; }
+    </style>
+</head>
+<body>
+    <h1>Jira Notifier</h1>
+    <label for="jql">Agregar nueva JQL:</label>
+    <input type="text" id="jql" placeholder="project=MYPROJECT AND status=Open">
+    <button id="addJql">Agregar</button>
+
+    <h2>Consultas activas</h2>
+    <ul id="jqlList"></ul>
+
+    <script src="popup.js"></script>
+</body>
+</html> -->
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title data-i18n="options">Opciones</title>
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="body__popup">
+  <div class="popup">
+    <div class="header">
+      <img alt="" class="header__logo header__logo--dark" src="./icons/jira-icon.png">
+
+      <div class="spacer"></div>
+
+    </div>
+
+    <div class="tabs">
+      <div class="tab tab--technologies tab--active" data-i18n="0">Notifications</div>
+      <div class="tab tab--plus" data-i18n="1">JQL List</div>
+      <div class="tab tab--configure" data-i18n="2">Config</div>
+      <div class="plus-download">
+        <div class="plus-download__button button">
+          <span class="button__link">
+            <span class="button__text">
+              Connect
+            </span>
+          </span>
+        </div>
+        <!-- <img alt="" class="connect_status" src="./icons/check.png"> -->
+      </div>
+    </div>
+
+    <div class="tab-items">
+
+      <div class="tab-item">
+        <ul id="jira-tickets">
+          <!-- <div class="jira-item__heading">
+            <a class="jira-item__link" href="https://jira-sd.mc1.oracleiaas.com/browse/BMP-583037">
+              <span class="jira-item__name">BMP-583037 - Host 2417YWG057: Sunvts stress test failed</span>
+              <span>
+                <span class="jira-item__date">20/04/2024 16:40 p.m.</span>
+              </span>
+            </a>
+          </div> -->
+        </ul>
+      </div>
+      
+      <div class="tab-item tab-item--hidden">
+        <div class="plus-configure">
+          <form class="plus-configure__form">
+            <div class="control">
+              <span class="label">
+                <span data-i18n="optionApiKey">Add JQL</span>
+              </span>
+  
+              <input type="text" id="jql" class="plus-configure__apikey input" placeholder='e.g. "project=MYPROJECT AND status=Open"'>
+            </div>
+  
+            <div class="message__button button">
+              <span id="addJql" class="plus-configure__save button__link">
+                <span class="button__text" data-i18n="formSave">Save</span>
+              </span>
+            </div>
+          </form>
+
+          <div class="message">
+            <div class="message__heading">
+              <span data-i18n="plusMessageHeading">JQL Actives</span>
+            </div>
+
+            <ul id="jqlList">
+              <!-- Example of a JQL item
+              <p>
+                <span data-i18n="plusMessage">project=MYPROJECT AND status=Open</span>
+                <div class="message__button button">
+                  <a class="button__link" href="">
+                    <span class="button__text" data-i18n="plusButton">Remove</span>
+                  </a>
+                </div>
+              </p>-->
+            </ul>
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-item tab-item--hidden">
+        <div class="plus-configure">
+          <form class="plus-configure__form">
+            <div class="control">
+              <span class="label">
+                <span data-i18n="optionJiraURL">Add your JIRA Server</span>
+              </span>
+              
+              <input type="text" id="jira-server" class="plus-configure__apikey input" placeholder='e.g. "https://my-jira-server.com/"'>
+            </div>
+            
+            <div class="message__button button">
+              <span id="addJiraServer" class="plus-configure__save button__link">
+                <span class="button__text" data-i18n="formSave">Save</span>
+              </span>
+            </div>
+          </form>
+          
+          <form class="plus-configure__form">
+            <div class="control">
+              <span class="label">
+                <span data-i18n="optionPAT">Add your Personal Access Token (PAT)</span>
+              </span>
+              
+              <input type="password" id="pat" class="plus-configure__apikey input">
+            </div>
+            
+            <div class="message__button button">
+              <span id="addPAT" class="plus-configure__save button__link">
+                <span class="button__text" data-i18n="formSave">Save</span>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      
+
+    </div>
+
+  </div>
+
+  <script src="./popup.js"></script>
+</body></html>
